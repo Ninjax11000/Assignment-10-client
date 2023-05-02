@@ -1,11 +1,13 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ChefsCard = ({chef}) => {
 
-    const {name, years_of_experience,number_of_recipes,image, likes}=chef
+    const {name, years_of_experience,number_of_recipes,image, likes,id}=chef
     return (
-        <Card className='mx-3'>
+       <div>
+         <Card className='mx-3'>
         <Card.Img variant="top" src={image} />
         <Card.Body>
           <Card.Title>{name}</Card.Title>
@@ -18,9 +20,11 @@ const ChefsCard = ({chef}) => {
           <Card.Text>
             {likes} likes
           </Card.Text>
-          <Button variant="danger">View Recipes</Button>
+          
+          <Link to={`/recipes/${id}`}><Button variant="danger">View Recipes </Button></Link>
         </Card.Body>
       </Card>
+       </div>
     );
 };
 
