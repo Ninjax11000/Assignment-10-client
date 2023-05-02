@@ -3,11 +3,11 @@ import { Button, Card } from 'react-bootstrap';
 
 const RecipeCard = ({ recipe }) => {
 
-    const { name, ingredients, cooking_method, rating } = recipe;
-    console.log(typeof ingredients);
+    const { name, ingredients, cooking_method, rating,image } = recipe;
+    //console.log(typeof ingredients);
     return (
         <Card className='w-75 mt-3 mx-auto'>
-            <Card.Img variant="top" src="https://via.placeholder.com/300x200" />
+            <Card.Img variant="top" src={image} />
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>
