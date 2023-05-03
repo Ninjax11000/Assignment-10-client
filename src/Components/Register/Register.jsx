@@ -3,8 +3,11 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 
+
+
+
 const Register = () => {
-    const {createUser}=useContext(AuthContext);
+    const {createUser,setProfile}=useContext(AuthContext);
 
     const handleRegister= event=>{
         event.preventDefault();
@@ -18,10 +21,12 @@ const Register = () => {
         .then(result=>{
             const createdUser=result.user;
             console.log(createdUser);
+            setProfile(name,photo);
         })
         .catch(error=>{
             console.log(error);
         })
+       
     }
     return (
         <div>
