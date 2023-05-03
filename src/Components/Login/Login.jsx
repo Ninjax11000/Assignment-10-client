@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
@@ -7,6 +7,8 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
+    const [error, setError]=useState('');
+    const [success, setSuccess]=useState('');
 
     const { signIn,googleSignIn,gitHubSignIn } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -19,15 +21,18 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
-
+        setError('');
+        setSuccess('');
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                setSuccess('user log in succesful');
+                setError('');
                 navigate(from, { replace: true });
             })
             .catch(error => {
-                console.log(error);
+                setError(error.message);
             })
     }
     const handleGoogleSignIn =()=>{
@@ -83,6 +88,8 @@ const Login = () => {
 
                     </Form.Text>
                 </Form>
+                <p className='text-danger'>{error}</p>
+                <p className='text-success'>{success}</p>
             </Container>
             <div>
                 <button onClick={handleGoogleSignIn}>Google Login</button>
