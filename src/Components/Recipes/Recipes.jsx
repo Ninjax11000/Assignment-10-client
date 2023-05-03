@@ -15,6 +15,7 @@ const Recipes = () => {
         .then(res=>res.json())
         .then(data=>setChef(data))
         .catch(error=>console.log(error))
+        window.scrollTo(0,0);
     },[]);
     
     console.log(chef);
