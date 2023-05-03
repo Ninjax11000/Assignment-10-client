@@ -3,6 +3,7 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
     const googleProvider = new GoogleAuthProvider();
@@ -91,9 +92,9 @@ const Login = () => {
                 <p className='text-danger'>{error}</p>
                 <p className='text-success'>{success}</p>
             </Container>
-            <div>
-                <button onClick={handleGoogleSignIn}>Google Login</button>
-                <button onClick={handleGithubSignIn}>Github Login</button>
+            <div className='text-center'>
+                <button className='btn btn-outline-primary mx-2' onClick={handleGoogleSignIn}> <FaGoogle/> Google Login</button>
+                <button className='btn btn-outline-primary mx-2' onClick={handleGithubSignIn}> <FaGithub/> Github Login</button>
             </div>
         </div>
     );

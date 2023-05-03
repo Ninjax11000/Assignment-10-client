@@ -1,9 +1,16 @@
-import React from 'react';
-import { Button, Card } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, Card, Toast } from 'react-bootstrap';
+
 
 const RecipeCard = ({ recipe }) => {
+    const [favourite, setFavourite] = useState(false);
+    const [showA, setShowA] = useState(true);
+    const toggleShowA = () => setShowA(!showA);
+    const handleDisable = () => {
+        setFavourite(true);
+    }
 
-    const { name, ingredients, cooking_method, rating,image } = recipe;
+    const { name, ingredients, cooking_method, rating, image } = recipe;
     //console.log(typeof ingredients);
     return (
         <Card className='w-75 mt-3 mx-auto'>
@@ -32,9 +39,17 @@ const RecipeCard = ({ recipe }) => {
                 <Card.Text>
                     <strong>Rating:</strong> {rating}
                 </Card.Text>
-                <Button variant="danger" className="me-2">
+                <Button onClick={handleDisable} variant="danger" className="me-2" disabled={favourite}>
                     Add to Favorites
                 </Button>
+                {favourite && <Toast show={showA} onClose={toggleShowA}>
+                    <Toast.Header>
+                        <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+                        <strong className="me-auto">Recipe</strong>
+                        <small>Just Now</small>
+                    </Toast.Header>
+                    <Toast.Body>Added to favourites!!!</Toast.Body>
+                </Toast>}
             </Card.Body>
         </Card>
     );
