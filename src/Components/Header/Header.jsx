@@ -1,15 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Nav, NavDropdown, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 
+
 const Header = () => {
+    const [isHovering, setIsHovering] = useState(false);
+    const handleName=()=>{
+        setIsHovering(true);
+    }
+    const hideName =()=>{
+        setIsHovering(false);
+    }
+
     const {user, logOut}=useContext(AuthContext);
+    const navigate=useNavigate();
 
     const handleLogout =()=>{
         logOut()
         .then()
         .catch(error=>console.log(error))
+        navigate('/');
     }
 
     return (
@@ -23,7 +34,8 @@ const Header = () => {
                         
                         <Link className='mx-2 px-2 text-decoration-none fs-5 text-white' to="/">Home</Link>
                         <Link className='mx-2 px-2 text-decoration-none fs-5 text-white' to="/blog">Blog</Link>
-                        {user && <h5>{user.displayName}</h5>}
+                        {user && isHovering && <h5 className='text-white'>{user.displayName}</h5>}
+                        {user && <img onMouseOver={handleName} onMouseOut={hideName} style={{width:'40px',height:'40px',borderRadius:'50%',background:'white'}} src={user.photoURL} alt="" /> }
 
                         {user? <Button onClick={handleLogout} variant='danger'className='fs-5'>Logout</Button>
                         :<Link className='mx-2 px-2 text-decoration-none fs-5 text-white' to='/login'>Login</Link> }
