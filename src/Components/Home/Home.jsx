@@ -3,6 +3,7 @@ import ChefsCard from '../ChefsCard/ChefsCard';
 import { CardGroup, Col, Row } from 'react-bootstrap';
 import HomeBanner from '../HomeBanner/HomeBanner';
 import Team from '../Team/Team';
+import NewRecipes from '../NewRecipes/NewRecipes';
 
 const Home = () => {
     const [chefs, setChefs]=useState([]);
@@ -29,6 +30,7 @@ const Home = () => {
            </div>
 
            <Team></Team>
+           <NewRecipes></NewRecipes>
            
         </div>
     );
