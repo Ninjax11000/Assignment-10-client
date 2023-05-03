@@ -5,6 +5,7 @@ import Recipes from "../Components/Recipes/Recipes";
 import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../Components/ErrorPage/ErrorPage";
 
 
 
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
         {
           path:'/register',
           element:<Register></Register>
+        },
+        {
+          path:'*',
+          element:<ErrorPage></ErrorPage>
+
         }
       ]
     },
