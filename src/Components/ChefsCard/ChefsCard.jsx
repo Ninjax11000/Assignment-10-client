@@ -6,9 +6,12 @@ const ChefsCard = ({chef}) => {
 
     const {name, years_of_experience,number_of_recipes,picture, likes,id}=chef
     return (
-       <div>
-         <Card className='mx-3 w-75'>
-        <Card.Img variant="top" className='w-100' src={picture} />
+       <div className='d-flex justify-content-center' >
+         <Card className='mx-3 w-75  '>
+          <div className='ratio ratio-1x1'>
+          <Card.Img variant="top" src={picture} />
+          </div>
+        
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>

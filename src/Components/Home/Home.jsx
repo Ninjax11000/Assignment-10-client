@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ChefsCard from '../ChefsCard/ChefsCard';
 import { CardGroup, Col, Row } from 'react-bootstrap';
+import HomeBanner from '../HomeBanner/HomeBanner';
+import Team from '../Team/Team';
 
 const Home = () => {
     const [chefs, setChefs]=useState([]);
@@ -14,14 +16,19 @@ const Home = () => {
 
     return (
         <div>
-            <h2>All chefs</h2>
-            <CardGroup>
+            <HomeBanner></HomeBanner>
+            <h2 className='text-center my-3 py-3'>All chefs</h2>
+           <div>
+            <CardGroup >
                 
-            {
-                chefs.map(chef=> (<Col key={chef.id}lg={6} className="mb-3 "><ChefsCard 
-                    chef={chef}></ChefsCard></Col> ))
-            }
-            </CardGroup>
+                {
+                    chefs.map(chef=> (<Col key={chef.id}lg={6} className="mb-3"><ChefsCard 
+                        chef={chef}></ChefsCard></Col> ))
+                }
+                </CardGroup>
+           </div>
+
+           <Team></Team>
            
         </div>
     );
