@@ -7,12 +7,13 @@ import NewRecipes from '../NewRecipes/NewRecipes';
 
 const Home = () => {
     const [chefs, setChefs]=useState([]);
-
+    // load the chefs
     useEffect(()=>{
         fetch('https://italian-taste-server1-ninjax11000.vercel.app/chefs')
         .then(res=>res.json())
         .then(data=>setChefs(data))
         .catch(error=>console.log(error))
+        
     },[])
 
     return (

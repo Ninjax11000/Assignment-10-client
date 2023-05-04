@@ -10,7 +10,7 @@ const Recipes = () => {
     const chefId=useParams();
     console.log(chefId.id);
     
-
+    // load chefs from server
     useEffect(()=>{
         fetch(`https://italian-taste-server1-ninjax11000.vercel.app/chefs/${chefId.id}`)
         .then(res=>res.json())

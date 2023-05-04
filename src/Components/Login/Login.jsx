@@ -16,6 +16,12 @@ const Login = () => {
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
+    // find the recipe id
+    var j= from.split('/');
+    var k=j.length-1;
+    var l=j[k];
+   
+  
     const handleLogIn = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -41,7 +47,12 @@ const Login = () => {
         .then(result=>{
             const loggedInUser=result.user;
             console.log(loggedInUser);
-           
+            if(l){
+                navigate(`/recipes/${l}`);
+            }
+            else{
+                navigate('/');
+            }
         })
         .catch(error=>{
             console.log('error', error.message);
@@ -52,7 +63,12 @@ const Login = () => {
         .then(result=>{
             const loggedInUser=result.user;
             console.log(loggedInUser);
-           
+            if(l){
+                navigate(`/recipes/${l}`);
+            }
+            else{
+                navigate('/');
+            }
         })
         .catch(error=>{
             console.log('error', error.message);

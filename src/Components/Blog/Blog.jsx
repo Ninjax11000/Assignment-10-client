@@ -1,8 +1,19 @@
 import React from 'react';
+import Pdf from "react-to-pdf";
+const ref = React.createRef();
 
 const Blog = () => {
     return (
         <div>
+            <Pdf targetRef={ref} filename="blog.pdf">
+                {({ toPdf }) => (
+                    <div className='text-center my-5'>
+                             <button className='btn btn-primary' onClick={toPdf} >Generate pdf</button>
+                    </div>
+                   
+                )}
+            </Pdf>
+            <div ref={ref}>
             <h2 className='text-center'>Questionaries</h2>
             <ol className='container'>
                 <li>
@@ -43,6 +54,7 @@ const Blog = () => {
                     </p>
                 </li>
             </ol>
+            </div>
         </div>
     );
 };

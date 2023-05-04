@@ -14,7 +14,7 @@ const Footer = () => {
             <Col lg={4}>
               <h5>Links</h5>
               <ul className="list-unstyled">
-                <li><Link  to="/home" className="text-decoration-none text-white">Home</Link></li>
+                <li><Link  to="/" className="text-decoration-none text-white">Home</Link></li>
                 <li><Link to="/blog" className="text-decoration-none text-white">Blog</Link></li>
                 <li><Link to="/contact" className="text-decoration-none text-white">Contact Us</Link></li>
               </ul>

@@ -4,6 +4,8 @@ import Member from '../Member/Member';
 const Team = () => {
     const [team, setTeam]=useState([]);
 
+    // load team members
+
     useEffect(()=>{
         fetch('https://italian-taste-server1-ninjax11000.vercel.app/team')
         .then(res=>res.json())
