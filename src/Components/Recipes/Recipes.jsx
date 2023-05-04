@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { CardGroup, Col } from 'react-bootstrap';
 import { useLoaderData, useParams } from 'react-router-dom';
 import RecipeCard from '../RecipeCard/RecipeCard';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Recipes = () => {
     const [chef, setChef]=useState([]);
@@ -23,7 +24,7 @@ const Recipes = () => {
         <div>
             <div className='container d-lg-flex bg-warning rounded align-items-center my-3'>
                 <div className='w-50'>
-                <img className='w-100 rounded' src={chef.picture} alt="" />
+                <LazyLoadImage  className='w-100 rounded' src={chef.picture} alt="" />
                 </div>
                 <div className='w-50 ps-3 '>
                     <h2>{chef.name}</h2>
