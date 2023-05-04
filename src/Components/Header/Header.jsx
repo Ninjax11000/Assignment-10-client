@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Button, Nav, NavDropdown, Navbar } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
-
+import './Header.css';
 
 const Header = () => {
     const [isHovering, setIsHovering] = useState(false);
@@ -32,13 +32,13 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto me-3">
                         
-                        <Link className='mx-2 px-2 text-decoration-none fs-5 text-white' to="/">Home</Link>
-                        <Link className='mx-2 px-2 text-decoration-none fs-5 text-white' to="/blog">Blog</Link>
+                        <NavLink className='mx-2 px-2 text-decoration-none fs-5 ' to="/">Home</NavLink>
+                        <NavLink className='mx-2 px-2 text-decoration-none fs-5' to="/blog">Blog</NavLink>
                         {user && isHovering && <h5 className='text-white'>{user.displayName}</h5>}
                         {user && <img onMouseOver={handleName} onMouseOut={hideName} style={{width:'40px',height:'40px',borderRadius:'50%',background:'white'}} src={user.photoURL} alt="" /> }
 
                         {user? <Button onClick={handleLogout} variant='danger'className='fs-5'>Logout</Button>
-                        :<Link className='mx-2 px-2 text-decoration-none fs-5 text-white' to='/login'>Login</Link> }
+                        :<NavLink className='mx-2 px-2 text-decoration-none fs-5 ' to='/login'>Login</NavLink> }
                        
                     </Nav>
                 </Navbar.Collapse>

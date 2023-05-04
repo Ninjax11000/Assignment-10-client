@@ -21,7 +21,7 @@ const router = createBrowserRouter([
         {
             path: '/recipes/:id',
             element: <PrivateRoute><Recipes></Recipes></PrivateRoute>,
-            loader: ({params})=> fetch(`http://localhost:5000/recipes/${params.id}`)
+            loader: ({params})=> fetch(`https://italian-taste-server1-ninjax11000.vercel.app/recipes/${params.id}`)
         },
         {
           path:'/login',

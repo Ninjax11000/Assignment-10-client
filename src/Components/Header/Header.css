@@ -1,0 +1,10 @@
+nav a.active{
+    background-color: yellow;
+    font-weight: bold;
+    border-radius: 8px;
+    color: black;
+}
+nav a{
+    color: white;
+    text-decoration: none;
+}

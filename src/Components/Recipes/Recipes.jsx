@@ -11,7 +11,7 @@ const Recipes = () => {
     
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/chefs/${chefId.id}`)
+        fetch(`https://italian-taste-server1-ninjax11000.vercel.app/chefs/${chefId.id}`)
         .then(res=>res.json())
         .then(data=>setChef(data))
         .catch(error=>console.log(error))
