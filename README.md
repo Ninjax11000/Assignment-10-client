@@ -5,4 +5,4 @@
 * Firebase Authentication with email and password, gmail, github
 * Firebase hosting
 * vercel hosting
-* [MySite](https://helpful-crumble-ed64dd.netlify.app/)
+* [MySite](https://italian-taste-f022d.web.app/)
