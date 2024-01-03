@@ -1,25 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { CardGroup, Col, Container, Row } from 'react-bootstrap';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import RecipeCard from '../RecipeCard/RecipeCard';
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Col, Container, Row } from 'react-bootstrap';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-const Recipes = () => {
+const NewRecipe = () => {
     const [chef, setChef] = useState([]);
-    const recipes = useLoaderData();
-    const chefId = useParams();
-    console.log(chefId.id);
+    const recipe = useLoaderData();
+    console.log(recipe);
+    
 
-    // load chefs from server
     useEffect(() => {
-        fetch(`https://italian-taste-server1-ninjax11000.vercel.app/chefs/${chefId.id}`)
+        fetch(`https://italian-taste-server1-o8ig9yvfa-ninjax11000.vercel.app/chefs/${recipe?.chef_id}`)
             .then(res => res.json())
             .then(data => setChef(data))
             .catch(error => console.log(error))
         window.scrollTo(0, 0);
     }, []);
-
-    console.log(chef);
     return (
         <div>
             <div className='container d-lg-flex bg-warning rounded align-items-center my-3'>
@@ -49,19 +46,13 @@ const Recipes = () => {
 
             </div>
 
-            <div className=' d-flex flex-column justify-content-center '>
-
-
-                {
-                    recipes.map(recipe => <RecipeCard
-                        key={recipe.chef_id}
-                        recipe={recipe}></RecipeCard>)
-                }
-
-            </div>
-
+            <RecipeCard
+                key={recipe.chef_id}
+                recipe={recipe}
+            >
+            </RecipeCard>
         </div>
     );
 };
 
-export default Recipes;
+export default NewRecipe;

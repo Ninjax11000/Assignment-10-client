@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { FaGithub, FaGoogle } from "react-icons/fa";
@@ -17,9 +17,10 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/';
 
     // find the recipe id
-    var j= from.split('/');
-    var k=j.length-1;
-    var l=j[k];
+    // var j= from.split('/');
+    // var k=j.length-1;
+    // var l=j[k];
+    let l=useParams();
    
   
     const handleLogIn = (event) => {

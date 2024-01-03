@@ -7,6 +7,7 @@ import Register from "../Components/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import Blog from "../Components/Blog/Blog";
+import NewRecipe from "../Components/NewRecipe/NewRecipe";
 
 
 
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
             path: '/recipes/:id',
             element: <PrivateRoute><Recipes></Recipes></PrivateRoute>,
             loader: ({params})=> fetch(`https://italian-taste-server1-ninjax11000.vercel.app/recipes/${params.id}`)
+        },
+        {
+          path:'/newrecipe/:id',
+          element: <PrivateRoute><NewRecipe></NewRecipe></PrivateRoute>,
+          loader: ({params})=> fetch(`https://italian-taste-server1-o8ig9yvfa-ninjax11000.vercel.app/recipe/${params.id}`)
         },
         {
           path:'/login',

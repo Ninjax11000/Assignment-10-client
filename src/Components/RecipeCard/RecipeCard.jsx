@@ -42,7 +42,8 @@ const RecipeCard = ({ recipe }) => {
                 <Button onClick={handleDisable} variant="danger" className="me-2" disabled={favourite}>
                     Add to Favorites
                 </Button>
-                {favourite && <Toast show={showA} onClose={toggleShowA}>
+                {favourite && 
+                <Toast show={showA} onClose={toggleShowA}>
                     <Toast.Header>
                         <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
                         <strong className="me-auto">Recipe</strong>

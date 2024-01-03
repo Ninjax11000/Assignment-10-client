@@ -24,7 +24,9 @@ const ChefsCard = ({chef}) => {
             {likes} likes
           </Card.Text>
           
-          <Link to={`/recipes/${id}`}><Button variant="danger">View Recipes </Button></Link>
+         <div className='d-flex justify-content-center'>
+         <Link to={`/recipes/${id}`}><Button variant="danger" className='fw-bold'>View Recipes </Button></Link>
+         </div>
         </Card.Body>
       </Card>
        </div>
